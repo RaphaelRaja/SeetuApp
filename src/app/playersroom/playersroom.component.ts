@@ -8,7 +8,7 @@ import { Player } from '../player.module/player';
 })
 export class PlayersroomComponent implements OnInit {
 
-  displayDialog: boolean;
+    displayDialog: boolean;
 
     player: Player = new Player();
 
@@ -20,7 +20,11 @@ export class PlayersroomComponent implements OnInit {
 
     cols: any[];
 
-  constructor() { }
+  constructor() { 
+      this.players = [
+        {name:"John", score:20}
+      ];
+  }
 
   ngOnInit() {
     this.cols = [
