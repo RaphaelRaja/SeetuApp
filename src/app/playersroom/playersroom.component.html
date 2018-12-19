@@ -1,4 +1,13 @@
-<p-table [columns]="cols" [value]="players" selectionMode="single" [(selection)]="selectedPlayer" (onRowSelect)="onRowSelect($event)">
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">Seetu</a>
+      </div>
+    </div>
+  </nav>
+
+<p-table [columns]="cols" [value]="players" selectionMode="single" [responsive]="true"
+ [(selection)]="selectedPlayer" (onRowSelect)="onRowSelect($event)" [autoLayout]="true">
   <ng-template pTemplate="header" let-columns>
       <tr>
           <th *ngFor="let col of columns">
@@ -15,8 +24,9 @@
   </ng-template>
 
   <ng-template pTemplate="summary" let-rowData>
-      <div style="text-align:left">
+      <div style="text-align:left" class="btn-group">
           <button type="button" pButton icon="pi pi-plus" (click)="showDialogToAdd()" label="Add"></button>
+          <button type="button" pButton icon="pi pi-trush" (click)="onClear()" label="Clear"></button>
       </div>
   </ng-template>
 </p-table>
@@ -27,7 +37,10 @@
       <div class="ui-g-8"><input pInputText id="name" [(ngModel)]="player.name" /></div>
       
       <div class="ui-g-4"><label for="score">Score</label></div>
-      <div class="ui-g-8"><input pInputText id="score" [(ngModel)]="player.score" /></div>
+      <div class="ui-g-8"><input type="number" pInputText id="score" [(ngModel)]="player.score" /></div>
+
+      <div class="ui-g-4"><label for="Add">Add</label></div>
+      <div class="ui-g-8"><input type="number" pInputText id="Add" [(ngModel)]="add" /></div>
       
   </div>
   <p-footer>

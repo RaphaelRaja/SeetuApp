@@ -9,12 +9,15 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { PlayersroomComponent } from './playersroom/playersroom.component';
+import { WelcomepageComponent } from './welcomepage/welcomepage.component';
 import { AppRoutingModule } from './app-routing.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlayersroomComponent
+    PlayersroomComponent,
+    WelcomepageComponent
   ],
   imports: [
     BrowserModule,

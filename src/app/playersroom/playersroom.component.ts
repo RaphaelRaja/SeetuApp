@@ -20,10 +20,10 @@ export class PlayersroomComponent implements OnInit {
 
     cols: any[];
 
+    add: number;
+
   constructor() { 
-      this.players = [
-        {name:"John", score:20}
-      ];
+    this.players = [];
   }
 
   ngOnInit() {
@@ -45,7 +45,9 @@ save() {
     if (this.newPlayer) {
         players.push(this.player);
     } else {
+        this.player.score = this.player.score+this.add;
         players[this.findSelectedPlayerIndex()] = this.player;
+        this.add = 0;
     }
     this.players = players;
     this.player = null;
@@ -63,6 +65,10 @@ onRowSelect(event) {
     this.newPlayer = false;
     this.player = {...event.data};
     this.displayDialog = true;
+}
+
+onClear(){
+    this.players = [];
 }
 
 findSelectedPlayerIndex(): number {
